@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class NotesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +18,7 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create note" do
-    assert_difference('Note.count') do
+    assert_difference("Note.count") do
       post notes_url, params: { note: { contents: @note.contents, last_viewed_on: @note.last_viewed_on, title: @note.title } }
     end
 
@@ -39,7 +41,7 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy note" do
-    assert_difference('Note.count', -1) do
+    assert_difference("Note.count", -1) do
       delete note_url(@note)
     end
 
