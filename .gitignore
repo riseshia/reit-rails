@@ -136,3 +136,8 @@ Session.vim
 tags
 
 # End of https://www.gitignore.io/api/osx,vim,ruby,rails
+
+# server setting
+config/deploy.rb
+config/deploy/
+Capfile
