@@ -1,9 +1,11 @@
-<% if note %>
-  <h3><%= note.title %></h3>
-  <p><%= note.contents %></p>
-  <br>
-  <%= link_to "next", book_next_path, method: :post %>
-<% else %>
-  There is no Notes<br>
-  <%= link_to "Go to make new note", notes_path %>
-<% end %>
+<div class="row">
+  <% if note %>
+    <h3><%= note.title %></h3>
+    <p><%= note.contents %></p>
+
+    <%= link_to "next", book_next_path, method: :post, class: "button button-primary" %>
+  <% else %>
+    There is no Notes<br>
+    <%= link_to "Go to make new note", notes_path %>
+  <% end %>
+</div>
