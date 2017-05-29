@@ -3,7 +3,7 @@ class CreateNotes < ActiveRecord::Migration[5.1]
     create_table :notes do |t|
       t.string :title
       t.string :contents
-      t.date :last_viewed_on
+      t.datetime :last_viewed_at
 
       t.timestamps
     end

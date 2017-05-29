@@ -18,12 +18,7 @@
 
   <div class="field">
     <%= form.label :contents %>
-    <%= form.text_field :contents, id: :note_contents %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_viewed_on %>
-    <%= form.date_select :last_viewed_on, id: :note_last_viewed_on %>
+    <%= form.text_area :contents, id: :note_contents %>
   </div>
 
   <div class="actions">

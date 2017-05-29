@@ -3,9 +3,9 @@
 one:
   title: MyString
   contents: MyString
-  last_viewed_on: 2017-05-29
+  last_viewed_at: 2017-05-29
 
 two:
   title: MyString
   contents: MyString
-  last_viewed_on: 2017-05-29
+  last_viewed_at: 2017-05-29
