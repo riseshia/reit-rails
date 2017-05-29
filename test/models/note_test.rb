@@ -12,7 +12,8 @@ class NoteTest < ActiveSupport::TestCase
     note = Note.create(
       title: "title",
       contents: "contents",
-      last_viewed_at: 10.days.ago
+      last_viewed_at: 10.days.ago,
+      user: users(:shia)
     )
     now = Time.zone.now
     note.read!

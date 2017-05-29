@@ -2,11 +2,17 @@
 
 class BookController < ApplicationController
   def index
-    render locals: { note: Note.pop.first }
+    render locals: { note: first_note }
   end
 
   def next
-    Note.pop.first.read!
+    first_note.read!
     redirect_to root_url
+  end
+
+  private
+
+  def first_note
+    current_user.notes.pop.first
   end
 end

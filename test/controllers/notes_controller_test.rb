@@ -4,6 +4,7 @@ require "test_helper"
 
 class NotesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in users(:shia)
     @note = notes(:one)
   end
 

@@ -4,8 +4,10 @@ one:
   title: MyString
   contents: MyString
   last_viewed_at: 2017-05-29
+  user: shia
 
 two:
   title: MyString
   contents: MyString
   last_viewed_at: 2017-05-29
+  user: shia
