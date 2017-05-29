@@ -9,6 +9,14 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
+mysql: &mysql
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_unicode_ci
+  reconnect: false
+  pool: 5
+
 development:
   <<: *default
   database: db/development.sqlite3
@@ -21,5 +29,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  <<: *mysql
+  database: <%= ENV["REIT_DATABASE_NAME"] %>
+  username: <%= ENV["REIT_DATABASE_ID"] %>
+  password: <%= ENV["REIT_DATABASE_PWD"] %>
+  host: <%= ENV["REIT_DATABASE_HOST"] %>

@@ -141,3 +141,4 @@ tags
 config/deploy.rb
 config/deploy/
 Capfile
+application.yml
