@@ -36,6 +36,8 @@ gem "jbuilder", "~> 2.5"
 gem "devise"
 gem "omniauth-github"
 
+gem "kaminari"
+
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 
