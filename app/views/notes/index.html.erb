@@ -8,7 +8,7 @@
       <th>Phase</th>
       <th>Title</th>
       <th>Contents</th>
-      <th>Last viewed on</th>
+      <th>Published on</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
         <td><%= note.phase %></td>
         <td><%= note.title %></td>
         <td><%= note.contents.truncate(50) %></td>
-        <td><%= note.last_viewed_at.strftime("%Y-%m-%d") %></td>
+        <td><%= note.published_on %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
