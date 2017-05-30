@@ -18,7 +18,7 @@ class NotesController < ApplicationController
 
   # POST /notes
   def create
-    @note = current_user.notes.build(note_params)
+    @note = Note.with(current_user, note_params)
 
     if @note.save
       redirect_to new_note_url, notice: "Note was successfully created."

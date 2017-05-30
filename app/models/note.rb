@@ -3,35 +3,42 @@
 class Note < ApplicationRecord
   belongs_to :user
 
-  before_validation :touch_last_viewed_at
-
   validates :title, presence: true
   validates :contents, presence: true
   validates :last_viewed_at, presence: true
 
-  scope :stack, -> { order(:phase, :last_viewed_at) }
+  scope :stack, -> { published.order(:phase, :last_viewed_at) }
+  scope :published, -> { where("published_on <= ?", Time.zone.now.to_date) }
 
   FIRST_PHASE = 1
   PHASE_MULTIFLEXER = 3
 
   def read!
-    touch_phase! { |obj| obj.phase *= PHASE_MULTIFLEXER }
-  end
-
-  def reset_phase!
-    touch_phase! { |obj| obj.phase = FIRST_PHASE }
-  end
-
-  private
-
-  def touch_phase!
-    touch_last_viewed_at(true)
-    yield self
+    self.phase = PHASE_MULTIFLEXER * phase
     save!
   end
 
-  def touch_last_viewed_at(force = false)
-    self.last_viewed_at = nil if force
-    self.last_viewed_at ||= Time.zone.now
+  def reset_phase!
+    self.phase = FIRST_PHASE
+    save!
+  end
+
+  def phase=(value)
+    super
+    base_datetime = Time.zone.now
+    self.last_viewed_at = base_datetime
+    self.published_on = base_datetime + phase.days
+  end
+
+  def self.with(user, options = {})
+    now = Time.zone.now
+    new(
+      user: user,
+      title: options[:title],
+      contents: options[:contents],
+      phase: options[:phase] || 1,
+      published_on: options[:published_on] || now + 1.day,
+      last_viewed_at: options[:last_viewed_at] || now
+    )
   end
 end
