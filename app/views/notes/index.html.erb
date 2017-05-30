@@ -16,9 +16,8 @@
     <% @notes.each do |note| %>
       <tr>
         <td><%= note.title %></td>
-        <td><%= note.contents %></td>
-        <td><%= note.last_viewed_at %></td>
-        <td><%= link_to 'Show', note %></td>
+        <td><%= note.contents.truncate(50) %></td>
+        <td><%= note.last_viewed_at.strftime("%Y-%m-%d") %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

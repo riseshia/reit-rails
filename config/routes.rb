@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "book#index"
 
-  resources :notes
+  resources :notes, except: [:show]
   namespace :book do
     post :next
   end
