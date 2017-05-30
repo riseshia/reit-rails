@@ -10,9 +10,14 @@ class BookController < ApplicationController
     redirect_to root_url
   end
 
+  def reset
+    first_note.reset_phase!
+    redirect_to root_url
+  end
+
   private
 
   def first_note
-    current_user.notes.pop.first
+    current_user.notes.stack.first
   end
 end

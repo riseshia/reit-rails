@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :notes, except: [:show]
   namespace :book do
     post :next
+    post :reset
   end
 end

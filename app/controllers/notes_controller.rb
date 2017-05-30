@@ -5,7 +5,7 @@ class NotesController < ApplicationController
 
   # GET /notes
   def index
-    @notes = current_user.notes.order(:last_viewed_at).page(params[:page])
+    @notes = current_user.notes.stack.page(params[:page])
   end
 
   # GET /notes/new

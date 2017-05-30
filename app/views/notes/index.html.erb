@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Phase</th>
       <th>Title</th>
       <th>Contents</th>
       <th>Last viewed on</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @notes.each do |note| %>
       <tr>
+        <td><%= note.phase %></td>
         <td><%= note.title %></td>
         <td><%= note.contents.truncate(50) %></td>
         <td><%= note.last_viewed_at.strftime("%Y-%m-%d") %></td>
