@@ -18,6 +18,6 @@ class BookController < ApplicationController
   private
 
   def first_note
-    current_user.notes.stack.first
+    current_user.notes.published.stack.first
   end
 end
