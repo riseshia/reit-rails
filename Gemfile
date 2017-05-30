@@ -38,6 +38,8 @@ gem "omniauth-github"
 
 gem "kaminari"
 
+gem "kramdown"
+
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 

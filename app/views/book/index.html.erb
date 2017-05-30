@@ -1,7 +1,10 @@
 <div class="row">
   <% if note %>
     <h3><%= note.title %></h3>
-    <p><%= note.contents %></p>
+
+    <div class="note-contents">
+      <%= markdown(note.contents) %>
+    </div>
 
     <%= link_to "next", book_next_path, method: :post, class: "button button-primary" %>
   <% else %>
