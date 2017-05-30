@@ -23,12 +23,7 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
       post notes_url, params: { note: { contents: @note.contents, title: @note.title } }
     end
 
-    assert_redirected_to note_url(Note.last)
-  end
-
-  test "should show note" do
-    get note_url(@note)
-    assert_response :success
+    assert_redirected_to new_note_url
   end
 
   test "should get edit" do
@@ -38,7 +33,7 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update note" do
     patch note_url(@note), params: { note: { contents: @note.contents, title: @note.title } }
-    assert_redirected_to note_url(@note)
+    assert_redirected_to notes_url
   end
 
   test "should destroy note" do
