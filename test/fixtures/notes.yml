@@ -3,5 +3,7 @@
 one:
   title: MyString
   contents: MyString
-  last_viewed_at: 2017-05-29
+  last_viewed_at: 2017-05-28
+  published_on: 2017-05-29
+  phase: 1
   user: shia
