@@ -5,7 +5,9 @@ class Note < ApplicationRecord
 
   validates :title, presence: true
   validates :contents, presence: true
+  validates :phase, presence: true
   validates :last_viewed_at, presence: true
+  validates :published_on, presence: true
 
   scope :stack, -> { order(:phase, :last_viewed_at) }
   scope :published, -> { where("published_on <= ?", Time.zone.now.to_date) }
