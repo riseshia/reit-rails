@@ -1,0 +1,18 @@
+<div class="row">
+  <% if note %>
+    <h3><%= note.title %></h3>
+
+    <div class="note-contents">
+      <%= markdown(note.contents) %>
+    </div>
+
+    <%= link_to "next", book_touch_path, method: :post, class: "button button-primary" %>
+  <% else %>
+    Here is nothing.<br>
+    Go and add new notes!
+  <% end %>
+</div>
+
+<div class="row">
+  <%= link_to "All notes", notes_path %>
+</div>

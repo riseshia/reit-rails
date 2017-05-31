@@ -6,10 +6,13 @@
       <%= markdown(note.contents) %>
     </div>
 
-    <%= link_to "next", book_next_path, method: :post, class: "button button-primary" %>
+    <%= link_to "next", book_forward_path, method: :post, class: "button button-primary" %>
     <%= link_to "reset", book_reset_path, method: :post, class: "button" %>
   <% else %>
-    There is no Notes<br>
+    You already read today's notes or there is nothing.<br>
+    Do you want to review today's notes?
+    <%= link_to "Go to review", book_review_path %>
+    <br>
   <% end %>
 </div>
 

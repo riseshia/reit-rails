@@ -11,12 +11,18 @@ class Note < ApplicationRecord
 
   scope :stack, -> { order(:phase, :last_viewed_at) }
   scope :published, -> { where("published_on <= ?", Time.zone.now.to_date) }
+  scope :today_viewed, -> { where("last_viewed_at >= ?", 1.day.ago) }
 
   FIRST_PHASE = 1
   PHASE_MULTIFLEXER = 3
 
   def read!
     self.phase = PHASE_MULTIFLEXER * phase
+    save!
+  end
+
+  def touch!
+    self.last_viewed_at = Time.zone.now
     save!
   end
 

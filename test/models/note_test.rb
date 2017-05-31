@@ -57,6 +57,20 @@ class NoteTest < ActiveSupport::TestCase
     assert_equal [first, second, middle, last], Note.stack.to_a
   end
 
+  test "review_today" do
+    user = users(:shia)
+
+    assert_difference "Note.today_viewed.count" do
+      note_with(user, keyword: "visible", phase: 7,
+                      last_viewed_at: Time.zone.now, published_on: 1.day.ago)
+    end
+
+    assert_no_difference "Note.today_viewed.count" do
+      note_with(user, keyword: "hidden", phase: 3,
+                      last_viewed_at: 4.days.ago, published_on: 1.day.ago)
+    end
+  end
+
   private
 
   def note_with(user,

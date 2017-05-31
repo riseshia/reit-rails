@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   resources :notes, except: [:show]
   namespace :book do
-    post :next
+    post :forward
     post :reset
+
+    get :review
+    post :touch
   end
 end
