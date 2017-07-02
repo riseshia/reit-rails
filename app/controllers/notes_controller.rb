@@ -30,7 +30,7 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   def update
     if @note.update(note_params)
-      redirect_to notes_url, notice: "Note was successfully updated."
+      redirect_to update_redirect_url, notice: "Note was successfully updated."
     else
       render :edit
     end
@@ -43,6 +43,14 @@ class NotesController < ApplicationController
   end
 
   private
+
+  def update_redirect_url
+    if params[:next_page] == "book"
+      root_url
+    else
+      notes_url
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_note
