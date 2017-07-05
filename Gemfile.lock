@@ -66,7 +66,7 @@ GEM
     capistrano-secrets-yml (1.0.0)
       capistrano (>= 3.1)
       sshkit (>= 1.2.0)
-    capistrano3-puma (3.1.0)
+    capistrano3-puma (3.1.1)
       capistrano (~> 3.7)
       capistrano-bundler
       puma (~> 3.4)
